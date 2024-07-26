@@ -11,29 +11,24 @@ public class CameraReyCast : MonoBehaviour
     {
         if (canvas != null)
         {
-            //canvas.gameObject.SetActive(false);
+            canvas.gameObject.SetActive(false);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            //if(hit.collider.tag != "Untagged")
-            //    Debug.Log("Namierzono: " + hit.collider.tag);
-
             if (Input.GetMouseButtonDown(0))
             {
+                if (hit.collider.gameObject.CompareTag("SceneObject"))
+                {
+                    hit.collider.gameObject.GetComponent<ObjectControler>().SetSelected();
+                }
                 canvas.gameObject.SetActive(true);
                 canvasAnimations.ShowCanvas();
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                canvasAnimations.HideCanvas();
             }
         }
 
