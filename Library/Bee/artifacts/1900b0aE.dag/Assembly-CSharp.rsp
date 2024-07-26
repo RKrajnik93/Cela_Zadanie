@@ -360,7 +360,6 @@
 "Assets/Scripts/CanvasManager.cs"
 "Assets/Scripts/ObjectControler.cs"
 "Assets/Scripts/ObjectData.cs"
-"Assets/Scripts/Spawner.cs"
 -langversion:9.0
 /deterministic
 /optimize+
